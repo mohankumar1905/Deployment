@@ -1,0 +1,16 @@
+include *.txt
+include *.md
+include *.cfg
+include *.pkl
+recursive-include ./fooddelivery/*
+
+include fooddelivery/datasets/Data_Train.xlsx
+include fooddelivery/datasets/Data_Test.xlsx
+include fooddelivery/train/*.pkl
+include fooddelivery/VERSION
+
+include ./requirements.txt
+exclude *.log
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

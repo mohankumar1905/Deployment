@@ -1,0 +1,8 @@
+#api
+flask==1.1.1
+
+#schema validation 
+marshmallow==3.4.0
+
+#Local Model packages
+-e "C:\Users\mohan\Documents\GitHub\Deployment\packages\fooddelivery"

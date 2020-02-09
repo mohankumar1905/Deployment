@@ -1,0 +1,13 @@
+imbalanced-learn==0.6.1
+category_encoders==2.1.0
+lightgbm==2.3.1
+pandas==1.0.1
+scikit-learn>=0.22.1
+xlrd==1.2.0
+
+#packaging
+setuptools==45.1.0
+wheel==0.34.2
+
+# testing
+pytest>=4.6.9
