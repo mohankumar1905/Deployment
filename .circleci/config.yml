@@ -13,8 +13,6 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r packages/fooddelivery/requirements.txt
-            echo "../../../../packages/fooddelivery" >> env/lib/python3.8/site-packages/extra.pth
-            python packages/fooddelivery/fooddelivery/main.py
             py.test -vv packages/fooddelivery/codetesting
 
 workflows:
