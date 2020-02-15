@@ -41,7 +41,7 @@ jobs:
           command: |
             virtualenv venv
             . venv/bin/activate
-            pip install -r packages/regression_model/requirements.txt
+            pip install -r packages/fooddelivery/requirements.txt
       - run: 
           name: Publish model
           command: |
