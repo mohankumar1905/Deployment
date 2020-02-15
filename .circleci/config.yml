@@ -34,7 +34,7 @@ jobs:
           name: Run tests
           command: |
             . venv/bin/activate
-            py.test -vv packages/fooddelivery/tests
+            py.test -vv packages/fooddelivery/codetesting
 
   test_ml_api:
     <<: *defaults
@@ -50,7 +50,7 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r packages/ml_api/requirements.txt
-            py.test -vv packages/ml_api/tests
+            py.test -vv packages/ml_api/codetesting
       - save_cache:
           key: py-deps-{{ checksum "packages/ml_api/requirements.txt" }}
           paths:
