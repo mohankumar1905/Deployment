@@ -46,8 +46,7 @@ jobs:
           name: Publish model
           command: |
             . venv/bin/activate
-            PYTHONPATH=./packages/fooddelivery 
-            python3 packages/fooddelivery/fooddelivery/main.py
+            PYTHONPATH=./packages/fooddelivery python3 packages/fooddelivery/fooddelivery/main.py
             ./scripts/publish_model.sh ./packages/fooddelivery/
 
 workflows:
