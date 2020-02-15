@@ -1,4 +1,5 @@
 import sys
+import json
 from fooddelivery.predict import make_prediction
 from fooddelivery.datamanagement.dataloadersaver import load_dataset
 
@@ -9,9 +10,9 @@ def test_make_single_prediction():
     #given
     test_data = load_dataset(filename='Data_Test.xlsx')
     single_test_json = test_data[0:1].to_json(orient='records')
-    
+
     #when 
-    subject = make_prediction(input_data=single_test_json)
+    subject = make_prediction(input_data=json.loads(single_test_json))
 
     #Then
     assert subject is not None
@@ -24,7 +25,7 @@ def test_make_multiple_predictions():
     multiple_test_json = test_data.to_json(orient='records')
 
     # When
-    subject = make_prediction(input_data=multiple_test_json)
+    subject = make_prediction(input_data=json.loads(multiple_test_json))
 
     # Then
     assert subject is not None
