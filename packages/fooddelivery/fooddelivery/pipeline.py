@@ -20,6 +20,6 @@ food_delivery_pipe = Pipeline(
 	('inherit_old_restaurant_info', fx.FillNewRestaurantDetails(variables=cg.INHERITING_INFO_COLUMNS)),
 	('extract_cusine_varities_info', fx.CusineVarities(variable=cg.CUSINE_VARIABLE)),
 	('encoding', fx.EncodeCategoricalVariables(variables=cg.ORDINAL_ENCODING_COLUMNS)),
-	('lightgbm', fx.Balanced_Lightgbm_Model(n_estimators = 10, random_state = 1994, learning_rate = 0.1, objective = 'multiclass',
+	('lightgbm', fx.Balanced_Lightgbm_Model(n_estimators = 1, random_state = 1994, learning_rate = 0.1, objective = 'multiclass',
 	 eval_metric='multi_logloss', early_stopping_rounds = 200, verbose = 1))
 	])
