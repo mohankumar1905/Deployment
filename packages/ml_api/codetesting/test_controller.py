@@ -39,5 +39,5 @@ def test_prediction_endpoint_returns_prediction(flask_test_client):
     response_json = json.loads(response.data)
     prediction = response_json['predictions']
     response_version = response_json['version']
-    assert prediction[0] == '30 minutes'
+    assert prediction[0] == '65 minutes'
     assert response_version == _version
