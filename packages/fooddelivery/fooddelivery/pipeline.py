@@ -23,6 +23,6 @@ food_delivery_pipe = Pipeline(
 	('extract_cusine_varities_info', fx.CusineVarities(variable=cg.CUSINE_VARIABLE)),
 	('encoding', fx.EncodeCategoricalVariables(variables=cg.ORDINAL_ENCODING_COLUMNS)),
 	('random_over_sampling', RandomOverSampler(random_state=1994)),
-	('lightgbm', LGBMClassifier(n_estimators = 300, random_state = 1994, nfold = 2, learning_rate = 0.03,
- colsample_bytree = 0.2, objective = 'multiclass'))
+	('lightgbm', LGBMClassifier(n_estimators = 3000, random_state = 1994, nfold = 5, learning_rate = 0.03,
+ colsample_bytree = 0.2, objective = 'multiclass', verbose=100))
 	])
