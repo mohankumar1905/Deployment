@@ -14,9 +14,49 @@ jobs:
             pip install --upgrade pip
             pip install -r packages/fooddelivery/requirements.txt
             py.test -vv packages/fooddelivery/codetesting
+  
+  test_ml_api:
+    working_directory: ~/project
+    docker:
+      - image: circle/python:3.8.1
+    steps:
+      - checkout
+      - run:
+          name: Runnning tests
+          command: |
+            virtualenv venv
+            . venv/bin/activate
+            pip install --upgrade pip
+            pip install -r packages/ml_api/requirements.txt
+            py.test -vv packages/ml_api/codetesting
+  
+  train_and_upload_fooddelivery_model:
+    working_directory: ~/project
+    docker:
+      - image: circleci/python:3.8.1
+    steps:
+      - checkout
+      -  run: 
+          name: Setup env
+          command: |
+            virtualenv venv
+            . venv/bin/activate
+            pip install -r packages/regression_model/requirements.txt
+      - run: 
+          name: Publish model
+          command: |
+            . venv/bin/activate
+            PYTHONPATH=./packages/fooddelivery 
+            python3 packages/fooddelivery/fooddelivery/main.py
+            ./scripts/publish_model.sh ./packages/fooddelivery/
 
 workflows:
   version: 2
   test-all:
     jobs:
       - test_fooddelivery_model
+      - test_ml_api
+      - train_and_upload_fooddelivery_model
+      - test_ml_api:
+          requires:
+            - train_and_upload_fooddelivery_model

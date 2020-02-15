@@ -1,8 +1,12 @@
+--extra-index-url=${PIP_EXTRA_INDEX_URL}
+
 #api
 flask==1.1.1
 
 #schema validation 
 marshmallow==3.4.0
 
+#Install from gemfury
+fooddelivery==0.1.0
 #Local Model packages
--e "C:\Users\mohan\Documents\GitHub\Deployment\packages\fooddelivery"
+#-e "C:\Users\mohan\Documents\GitHub\Deployment\packages\fooddelivery"
