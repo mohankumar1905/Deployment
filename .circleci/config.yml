@@ -29,7 +29,7 @@ jobs:
           name: Train model
           command: |
             . venv/bin/activate
-            PYTHONPATH=./packages/regression_model python3 packages/fooddelivery/fooddelivery/train_pipeline.py
+            PYTHONPATH=./packages/regression_model python3 packages/fooddelivery/fooddelivery/main.py
       - run:
           name: Run tests
           command: |
@@ -70,7 +70,7 @@ jobs:
           name: Train model
           command: |
             . venv/bin/activate
-            PYTHONPATH=./packages/fooddelivery python3 packages/fooddelivery/fooddelivery/train_pipeline.py
+            PYTHONPATH=./packages/fooddelivery python3 packages/fooddelivery/fooddelivery/main.py
       - run: 
           name: Publish model to Gemfury
           command: |
