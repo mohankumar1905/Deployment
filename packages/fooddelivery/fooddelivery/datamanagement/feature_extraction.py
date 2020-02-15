@@ -3,7 +3,10 @@ import numpy as np
 import re
 from sklearn.base import BaseEstimator, TransformerMixin
 from category_encoders import OrdinalEncoder
+from imblearn.over_sampling import RandomOverSampler
+from lightgbm import LGBMClassifier
 import itertools
+from sklearn.model_selection import train_test_split
 from fooddelivery.datamanagement.errors import InvalidModelInputError
 
 class FindCityinAddress(BaseEstimator, TransformerMixin):
@@ -127,3 +130,27 @@ class EncodeCategoricalVariables(BaseEstimator, TransformerMixin):
         X = X.copy()
         X[self.variables] = self.ordinal_encoder.transform(X[self.variables])
         return X
+
+class Balanced_Lightgbm_Model(BaseEstimator):
+    '''Balancing Dataset and Modelling'''
+    def __init__(self, *, n_estimators, random_state, learning_rate, objective, eval_metric, early_stopping_rounds, verbose):
+        self.test_size = 0.2
+        self.eval_metric = 'multi_logloss'
+        self.random_state = random_state
+        self.early_stopping_rounds = early_stopping_rounds
+        self.verbose = verbose
+        self.estimator = LGBMClassifier(n_estimators=n_estimators, random_state=self.random_state,
+         learning_rate=learning_rate, objective=objective)
+        
+
+    def fit(self, X: pd.DataFrame, y: pd.Series):
+        '''fit categorical Variables'''
+        x_train, x_val, y_train, y_val = train_test_split(X, y, test_size=self.test_size, random_state=self.random_state)
+        ros = RandomOverSampler(random_state=self.random_state)
+        x_train, y_train = ros.fit_resample(x_train, y_train)
+        self.estimator.fit(x_train, y_train, early_stopping_rounds=self.early_stopping_rounds, verbose = self.verbose, 
+                           eval_metric=self.eval_metric, eval_set=[(x_val, y_val)])
+        return self
+
+    def predict(self, X):
+        return self.estimator.predict(X)
