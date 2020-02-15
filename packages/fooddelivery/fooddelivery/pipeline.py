@@ -24,5 +24,5 @@ food_delivery_pipe = Pipeline(
 	('encoding', fx.EncodeCategoricalVariables(variables=cg.ORDINAL_ENCODING_COLUMNS)),
 	#('random_over_sampling', RandomOverSampler(random_state=1994)),
 	('lightgbm', fx.Balanced_Lightgbm_Model(n_estimators = 3000, random_state = 1994, learning_rate = 0.1, objective = 'multiclass',
-	 eval_metric='multi_logloss', early_stopping_rounds = 200, verbose = 200))
+	 eval_metric='multi_logloss', early_stopping_rounds = 200, verbose = 1))
 	])
