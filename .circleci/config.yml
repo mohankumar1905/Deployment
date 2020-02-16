@@ -94,7 +94,7 @@ jobs:
           command: |
             . venv/bin/activate
             pip install -r packages/ml_api/requirements.txt
-            py.test -vv packages/ml_api/tests -m differential
+            py.test -vv packages/ml_api/codetesting -m differential
 
 workflows:
   version: 2
