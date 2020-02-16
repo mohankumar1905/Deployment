@@ -4,6 +4,7 @@ lightgbm==2.3.1
 pandas==1.0.1
 scikit-learn>=0.22.1
 xlrd==1.2.0
+openpyxl==3.0.3
 
 #packaging
 setuptools==45.1.0

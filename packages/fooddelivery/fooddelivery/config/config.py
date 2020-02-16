@@ -49,4 +49,3 @@ CUSINE_VARIABLE = 'Cuisines'
 ORDINAL_ENCODING_COLUMNS = ['Cuisines', 'Location', 'Restaurant', 'city']
 LABEL_ENCODING_COLUMN ='Delivery_Time'
 CITIES_TO_CHECK = ['pune', 'mumbai', 'noida', 'delhi', 'kolkata', 'bangalore', 'gurgoan', 'hyderabad']
-
