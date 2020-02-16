@@ -31,7 +31,7 @@ def capture_predictions(
     # hack here to save the file to the fooddelivery model
     # package of the repo, not the installed package
     predictions_df.to_excel(
-        f'{config.PACKAGE_ROOT}/fooddelivery/fooddelivery/datasets/{save_file}')
+        f'{config.PACKAGE_ROOT.parent}/fooddelivery/fooddelivery/datasets/{save_file}')
 
 
 if __name__ == '__main__':
