@@ -6,5 +6,7 @@ flask==1.1.1
 #schema validation 
 marshmallow==3.4.0
 
+#save different model result as excel
+openpyxl==3.0.3
 #put previous model version here.
 fooddelivery==0.1.0

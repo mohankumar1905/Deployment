@@ -6,6 +6,9 @@ flask==1.1.1
 #schema validation 
 marshmallow==3.4.0
 
+#save as excel
+openpyxl==3.0.3
+
 #Install from gemfury
 fooddelivery==0.1.0
 #Local Model packages
