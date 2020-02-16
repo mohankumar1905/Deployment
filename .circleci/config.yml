@@ -100,12 +100,12 @@ workflows:
   version: 2
   test-all:
     jobs:
-      - test_regression_model
+      - test_fooddelivery_model
       - test_ml_api
       - section_9_differential_tests
-      - train_and_upload_regression_model:
+      - train_and_upload_fooddelivery_model:
           requires:
-            - test_regression_model
+            - test_fooddelivery_model
             - test_ml_api
             - section_9_differential_tests
           filters:
