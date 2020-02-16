@@ -1,0 +1,10 @@
+--extra-index-url=${PIP_EXTRA_INDEX_URL}
+
+#api
+flask==1.1.1
+
+#schema validation 
+marshmallow==3.4.0
+
+#put previous model version here.
+fooddelivery==0.1.0
