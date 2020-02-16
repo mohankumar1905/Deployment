@@ -24,13 +24,15 @@ def capture_predictions(
 
     predictions = make_prediction(input_data=json.loads(multiple_test_json))
 
+
     # save predictions for the test dataset
     predictions_df = pd.DataFrame(predictions)
 
     # hack here to save the file to the fooddelivery model
     # package of the repo, not the installed package
-    predictions_df.to_excel(f'{config.PACKAGE_ROOT}/{save_file}')
-    print(f'{config.PACKAGE_ROOT}/{save_file}')
+    predictions_df.to_excel(
+        f'{config.PACKAGE_ROOT}/fooddelivery/fooddelivery/datasets/{save_file}')
+
 
 if __name__ == '__main__':
     capture_predictions()
