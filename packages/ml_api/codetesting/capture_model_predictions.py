@@ -12,10 +12,12 @@ from fooddelivery.datamanagement.dataloadersaver import load_dataset
 from api import config
 
 
-def capture_predictions():
+def capture_predictions(
+        *,
+        save_file: str = 'test_data_predictions.xlsx'):
     """Save the test data predictions to a Excel."""
 
-    test_data = load_dataset(filename=config.TESTING_DATA_FILE)
+    test_data = load_dataset(filename='Data_Test.xlsx')
 
     # we take a slice with no input validation issues
     multiple_test_json = test_data[99:600].to_json(orient='records')
@@ -29,8 +31,8 @@ def capture_predictions():
     # hack here to save the file to the fooddelivery model
     # package of the repo, not the installed package
     predictions_df.to_excel(
-        f'{config.PACKAGE_ROOT.parent}/fooddelivery/fooddelivery/datasets/{config.PREVIOUS_TEST_FILE}')
-
+        f'{config.PACKAGE_ROOT.parent}/fooddelivery/fooddelivery/datasets/{save_file}')
+    print
 
 if __name__ == '__main__':
     capture_predictions()
