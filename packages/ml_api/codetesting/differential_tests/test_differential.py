@@ -35,7 +35,7 @@ def test_model_prediction_differential(
     # Perform the differential test
     for previous_value, current_value in zip(
             previous_model_predictions, current_model_predictions):
-
+        print(previous_value, current_value)
         # convert numpy float64 to Python float.
         if previous_value == current_value:
             same_predictions_count+=1
