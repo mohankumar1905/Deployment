@@ -15,7 +15,7 @@ from api import config
 def capture_predictions(
         *,
         save_file: str = 'test_data_predictions.xlsx'):
-    """Save the test data predictions to a CSV."""
+    """Save the test data predictions to a Excel."""
 
     test_data = load_dataset(filename='Data_Test.xlsx')
 
@@ -24,16 +24,13 @@ def capture_predictions(
 
     predictions = make_prediction(input_data=json.loads(multiple_test_json))
 
-
     # save predictions for the test dataset
     predictions_df = pd.DataFrame(predictions)
 
     # hack here to save the file to the fooddelivery model
     # package of the repo, not the installed package
-    predictions_df.to_excel(
-        f'{config.PACKAGE_ROOT.parent}/'
-        f'fooddelivery/fooddelivery/datasets/{save_file}')
-
+    predictions_df.to_excel(f'{config.PACKAGE_ROOT}/{save_file}')
+    print(f'{config.PACKAGE_ROOT}/{save_file}')
 
 if __name__ == '__main__':
     capture_predictions()
