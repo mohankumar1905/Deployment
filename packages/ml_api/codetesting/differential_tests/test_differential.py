@@ -37,7 +37,7 @@ def test_model_prediction_differential(
             previous_model_predictions, current_model_predictions):
 
         # convert numpy float64 to Python float.
-        if previous_value.item() == current_value.item():
+        if previous_value == current_value:
             same_predictions_count+=1
 
     assert same_predictions_count >= config.SAME_PREDICTION_COUNT
