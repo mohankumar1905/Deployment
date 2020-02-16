@@ -4,7 +4,7 @@ import pytest
 
 from fooddelivery.config import config
 from fooddelivery.predict import make_prediction
-from fooddelivery.processing.data_management import load_dataset
+from fooddelivery.datamanagement.dataloadersaver import load_dataset
 
 @pytest.mark.differential
 def test_model_prediction_differential(
