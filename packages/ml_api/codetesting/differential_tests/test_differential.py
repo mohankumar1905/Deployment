@@ -15,9 +15,9 @@ def test_model_prediction_differential(
     the current model with the previous model's results.
     """
     # Given
-    previous_model_df = load_dataset(file_name=save_file)
+    previous_model_df = load_dataset(filename=save_file)
     previous_model_predictions = previous_model_df.predictions.values
-    test_data = load_dataset(file_name=config.TESTING_DATA_FILE)
+    test_data = load_dataset(filename=config.TESTING_DATA_FILE)
     multiple_test_json = test_data[99:600].to_json(orient='records')
 
     # When
