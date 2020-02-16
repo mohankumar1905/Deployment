@@ -1,7 +1,7 @@
 import math
 import json
 import pytest
-
+import pandas as pd
 from fooddelivery.config import config
 from fooddelivery.predict import make_prediction
 from fooddelivery.datamanagement.dataloadersaver import load_dataset
