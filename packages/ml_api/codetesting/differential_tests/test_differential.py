@@ -40,4 +40,4 @@ def test_model_prediction_differential(
         if previous_value == current_value:
             same_predictions_count+=1
 
-    assert same_predictions_count >= config.SAME_PREDICTION_COUNT
+    assert same_predictions_count >= 10
