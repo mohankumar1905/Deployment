@@ -53,3 +53,4 @@ CITIES_TO_CHECK = ['pune', 'mumbai', 'noida', 'delhi', 'kolkata', 'bangalore', '
 #testing 
 
 SAME_PREDICTION_COUNT = 10
+PREVIOUS_TEST_FILE = 'test_data_predictions.xlsx'

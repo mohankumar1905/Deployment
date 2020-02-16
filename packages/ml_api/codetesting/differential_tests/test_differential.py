@@ -7,9 +7,7 @@ from fooddelivery.predict import make_prediction
 from fooddelivery.datamanagement.dataloadersaver import load_dataset
 
 @pytest.mark.differential
-def test_model_prediction_differential(
-        *,
-        save_file='test_data_predictions.xlsx'):
+def test_model_prediction_differential():
     """
     This test compares the prediction result similarity of
     the current model with the previous model's results.
@@ -19,7 +17,7 @@ def test_model_prediction_differential(
     multiple_test_json = test_data[99:600].to_json(orient='records')
 
     # Given
-    previous_model_df = load_dataset(filename=save_file)
+    previous_model_df = load_dataset(filename=config.PREVIOUS_TEST_FILE)
     previous_model_predictions = previous_model_df.predictions.values
 
     # When
