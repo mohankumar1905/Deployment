@@ -17,7 +17,7 @@ def capture_predictions(
         save_file: str = 'test_data_predictions.xlsx'):
     """Save the test data predictions to a CSV."""
 
-    test_data = load_dataset(file_name='Data_Test.xlsx')
+    test_data = load_dataset(filename='Data_Test.xlsx')
 
     # we take a slice with no input validation issues
     multiple_test_json = test_data[99:600].to_json(orient='records')
