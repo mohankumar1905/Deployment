@@ -1,0 +1,10 @@
+jupyter_notebooks*
+*/env*
+*/venv*
+.circleci*
+packages/fooddelivery
+*.env
+*.log
+.git
+.gitignore
+runtime.txt
