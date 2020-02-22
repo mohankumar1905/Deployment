@@ -1,0 +1,20 @@
+[{
+	"Restaurant":"ID_2842",
+	"Location":"Mico Layout, Stage 2, BTM Layout,Bangalore",
+	 "Cuisines":"North Indian, Chinese, Assamese",
+	 "Average_Cost":"\u20b9100",
+	 "Minimum_Order":"\u20b950",
+	 "Rating":"4.2",
+	 "Votes":"361",
+	 "Reviews":"225"},
+ {
+	 "Restaurant":"ID_2846",
+	 "Location":"Mico Layout, Stage 2, BTM Layout,Chennai",
+	 "Cuisines":"North Indian, Chinese, Assamese",
+	 "Average_Cost":"\u20b9350",
+	 "Minimum_Order":"\u20b950",
+	 "Rating":"1.2",
+	 "Votes":"0",
+	 "Reviews":"0"
+ }
+]

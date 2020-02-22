@@ -95,6 +95,16 @@ jobs:
             . venv/bin/activate
             pip install -r packages/ml_api/requirements.txt
             py.test -vv packages/ml_api/codetesting -m differential
+  
+  section_10_deploy_to_heroku:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Deploy to Heroku
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+
 
 workflows:
   version: 2
@@ -108,6 +118,13 @@ workflows:
             - test_fooddelivery_model
             - test_ml_api
             - section_9_differential_tests
+          filters:
+            branches:
+              only:
+                - master
+      - section_10_deploy_to_heroku:
+          requires:
+            - train_and_upload_fooddelivery_model
           filters:
             branches:
               only:
