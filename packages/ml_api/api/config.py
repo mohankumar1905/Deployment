@@ -51,6 +51,7 @@ class Config:
 
 class ProductionConfig(Config):
     DEBUG = False
+    SERVER_ADDRESS: os.environ.get('SERVER_ADDRESS', '0.0.0.0') #Added at aws deployment
     SERVER_PORT = os.environ.get('PORT', 5000)
 
 class DevelopmentConfig(Config):
