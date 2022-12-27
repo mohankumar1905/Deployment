@@ -7,7 +7,7 @@ xlrd==1.2.0
 openpyxl==3.0.3
 
 #packaging
-setuptools==45.1.0
+setuptools==65.5.1
 wheel==0.34.2
 
 # testing
